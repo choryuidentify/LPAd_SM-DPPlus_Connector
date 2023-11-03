@@ -15,7 +15,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.openmuc</groupId>
+            <groupId>com.beanit</groupId>
             <artifactId>jasn1-compiler</artifactId>
         </dependency>
         <dependency>
@@ -46,13 +46,19 @@
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
+            <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.4</version>
         </dependency>
     </dependencies>
 
@@ -79,7 +85,7 @@
                 </executions>
                 <configuration>
                     <executable>java</executable>
-                    <mainClass>org.openmuc.jasn1.compiler.Compiler</mainClass>
+                    <mainClass>com.beanit.jasn1.compiler.Compiler</mainClass>
                     <arguments>
                         <argument>-o</argument>
                         <argument>${project.basedir}/target/generated-sources/asn1/</argument>

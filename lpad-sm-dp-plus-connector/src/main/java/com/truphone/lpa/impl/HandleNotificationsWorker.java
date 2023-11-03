@@ -4,7 +4,7 @@ import com.truphone.rsp.dto.asn1.rspdefinitions.*;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
-import org.openmuc.jasn1.ber.BerByteArrayOutputStream;
+import com.beanit.jasn1.ber.ReverseByteArrayOutputStream;
 import com.truphone.es9plus.Es9PlusImpl;
 import com.truphone.lpa.ApduChannel;
 import com.truphone.lpa.apdu.ApduUtils;
@@ -144,11 +144,11 @@ public class HandleNotificationsWorker {
     }
 
     private String getEncodedPendingNotification(PendingNotification pendingNotification) throws IOException {
-        BerByteArrayOutputStream berByteArrayOutputStream = new BerByteArrayOutputStream(4000, true);
+        ReverseByteArrayOutputStream reverseByteArrayOutputStream = new ReverseByteArrayOutputStream(4000, true);
 
-        pendingNotification.encode(berByteArrayOutputStream);
+        pendingNotification.encode(reverseByteArrayOutputStream);
 
-        String pendingNotificationStr = Util.byteArrayToHexString(berByteArrayOutputStream.getArray(), "");
+        String pendingNotificationStr = Util.byteArrayToHexString(reverseByteArrayOutputStream.getArray(), "");
 
         if (LogStub.getInstance().isDebugEnabled()) {
             LogStub.getInstance().logDebug(LOG, LogStub.getInstance().getTag() + " - Pending notification: " + pendingNotificationStr);

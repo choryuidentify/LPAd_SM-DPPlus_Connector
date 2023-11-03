@@ -15,7 +15,7 @@ import com.truphone.lpa.LocalProfileAssistant;
 import com.truphone.lpa.impl.LocalProfileAssistantImpl;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 public class AllocateProfileTest {
